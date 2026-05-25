@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium single-page portfolio for an AI Automation, Operations Intelligence, and Fleet Analytics professional."
+    />
+    <title>Anubhav | Operational Intelligence Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+              space: ["Space Grotesk", "sans-serif"],
+            },
+            colors: {
+              night: "#05070a",
+              graphite: "#111820",
+              panel: "rgba(17, 24, 32, 0.72)",
+              neon: "#7CFF7A",
+              cyan: "#38BDF8",
+              mist: "#E7EEF7",
+            },
+          },
+        },
+      };
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="bg-night text-mist font-inter antialiased">
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div id="particles" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="#hero" class="brand-mark" aria-label="Anubhav portfolio home">
+        <span>AI</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+        <a href="#about">Intel</a>
+        <a href="#experience">Timeline</a>
+        <a href="#projects">Systems</a>
+        <a href="#skills">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-action" href="#contact">
+        <i data-lucide="radio-tower"></i>
+        <span>Connect</span>
+      </a>
+    </header>
+
+    <main>
+      <section id="hero" class="hero-section min-h-screen relative overflow-hidden">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+
+        <div class="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:pb-16">
+          <div class="relative z-10">
+            <div class="status-chip mb-7" data-aos="fade-up">
+              <span class="pulse-dot"></span>
+              AI Operations Command Layer
+            </div>
+            <div class="hero-identity" data-aos="fade-up" data-aos-delay="40">
+              <span>Anubhav Giri</span>
+              <p>AI automation strategist for fleets, audits, and intelligent workflows.</p>
+            </div>
+            <h1 class="hero-title font-space text-5xl font-bold leading-[0.96] tracking-normal text-white md:text-7xl xl:text-[5.7rem]" data-aos="fade-up" data-aos-delay="80">
+              Building AI-powered operational intelligence systems
+            </h1>
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl" data-aos="fade-up" data-aos-delay="160">
+              Fleet Analytics • AI Automation • ESG Systems • Audit Intelligence
+            </p>
+            <p class="typing-line mt-6 font-space text-base text-neon md:text-lg" data-aos="fade-up" data-aos-delay="220">
+              <span id="typedText"></span><span class="typing-caret"></span>
+            </p>
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="300">
+              <a href="#projects" class="primary-cta">
+                <i data-lucide="activity"></i>
+                View Intelligence Systems
+              </a>
+              <a href="#contact" class="secondary-cta">
+                <i data-lucide="send"></i>
+                Start a Conversation
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-dashboard relative z-10" data-aos="zoom-in" data-aos-delay="180">
+            <figure class="hero-image-stage" data-tilt-card>
+              <div class="hero-image-aura" aria-hidden="true"></div>
+              <img src="assets/anubhav-hero.jpeg" alt="Animated AI automation portrait of Anubhav Giri" />
+              <figcaption>
+                <span>Anubhav Giri</span>
+                <strong>Operations intelligence for businesses that move fast.</strong>
+              </figcaption>
+            </figure>
+            <div class="telemetry-shell">
+              <div class="telemetry-header">
+                <div>
+                  <p>Live Ops Console</p>
+                  <h2>Fleet Intelligence Core</h2>
+                </div>
+                <span>ACTIVE</span>
+              </div>
+              <div class="kpi-grid">
+                <article class="kpi-card floating-card" style="--delay: 0s">
+                  <p>Payroll Leakage</p>
+                  <strong data-counter="2" data-prefix="₹" data-suffix="M+">₹0M+</strong>
+                  <span>Identified through anomaly audits</span>
+                </article>
+                <article class="kpi-card floating-card" style="--delay: 0.8s">
+                  <p>Report Cycle</p>
+                  <strong><span data-counter="48">0</span>h → <span data-counter="3">0</span>h</strong>
+                  <span>Automation compression</span>
+                </article>
+                <article class="kpi-card floating-card" style="--delay: 1.4s">
+                  <p>EV Operations</p>
+                  <strong data-counter="360" data-suffix="°">0°</strong>
+                  <span>Route, battery, emissions, uptime</span>
+                </article>
+              </div>
+              <div class="signal-panel">
+                <div class="signal-line"></div>
+                <div class="signal-bars" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section-shell">
+        <div class="section-heading" data-aos="fade-up">
+          <span>Operational Intelligence</span>
+          <h2>Turning fragmented operations into decision systems.</h2>
+          <p>
+            I design automation layers, analytics dashboards, and audit intelligence workflows that make operations measurable, explainable, and faster to run.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="metric-card" data-aos="fade-up" data-aos-delay="0">
+            <i data-lucide="scan-search"></i>
+            <strong>₹2M+</strong>
+            <p>Payroll leakage identified with structured audit analysis and variance detection.</p>
+          </article>
+          <article class="metric-card" data-aos="fade-up" data-aos-delay="80">
+            <i data-lucide="timer-reset"></i>
+            <strong>48h to 3h</strong>
+            <p>Reporting automation built for faster business reviews and lower manual effort.</p>
+          </article>
+          <article class="metric-card" data-aos="fade-up" data-aos-delay="160">
+            <i data-lucide="route"></i>
+            <strong>EV Fleet</strong>
+            <p>Operational analytics across utilization, route health, charging patterns, and downtime.</p>
+          </article>
+          <article class="metric-card" data-aos="fade-up" data-aos-delay="240">
+            <i data-lucide="bot"></i>
+            <strong>AI Workflows</strong>
+            <p>AI automation systems for reporting, exception handling, research, and knowledge retrieval.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section-shell">
+        <div class="section-heading" data-aos="fade-up">
+          <span>Experience Timeline</span>
+          <h2>Built across operations, analytics, automation, and venture systems.</h2>
+        </div>
+        <div class="timeline mt-14">
+          <article class="timeline-card" data-aos="fade-right">
+            <span>Bluwheelz</span>
+            <h3>Fleet Analytics & Operations Intelligence</h3>
+            <p>Built EV fleet analytics workflows spanning utilization, reporting, audit visibility, and performance control loops.</p>
+          </article>
+          <article class="timeline-card" data-aos="fade-left">
+            <span>Stadtgemüse</span>
+            <h3>Operations & Sustainability Systems</h3>
+            <p>Mapped operations data into practical reporting layers for process clarity, ESG visibility, and execution rhythm.</p>
+          </article>
+          <article class="timeline-card" data-aos="fade-right">
+            <span>Moyyn</span>
+            <h3>AI Automation & Market Intelligence</h3>
+            <p>Developed research and automation workflows for talent, market, and venture intelligence use cases.</p>
+          </article>
+          <article class="timeline-card" data-aos="fade-left">
+            <span>AigenEdge</span>
+            <h3>AI Agents & Workflow Systems</h3>
+            <p>Designed agentic workflows, data pipelines, and automation logic for repeatable operational decision support.</p>
+          </article>
+          <article class="timeline-card" data-aos="fade-right">
+            <span>Pg On Palm</span>
+            <h3>Business Operations & Digital Systems</h3>
+            <p>Supported digital operations, reporting structures, and process improvements for execution-heavy environments.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section-shell">
+        <div class="section-heading" data-aos="fade-up">
+          <span>Project Showcase</span>
+          <h2>Premium systems for real operational leverage.</h2>
+        </div>
+        <div class="project-grid mt-12">
+          <article class="project-card" data-aos="fade-up">
+            <div class="project-topline"><span>FleetOps</span><i data-lucide="gauge"></i></div>
+            <h3>Fleet Performance Dashboard</h3>
+            <p>Executive dashboard for utilization, trip reliability, downtime, vehicle health, and SLA performance.</p>
+            <div class="tag-row"><span>Uptime</span><span>Trips</span><span>SLA</span></div>
+            <footer>Python • SQL • Power BI • Sheets</footer>
+          </article>
+          <article class="project-card" data-aos="fade-up" data-aos-delay="70">
+            <div class="project-topline"><span>ESG Core</span><i data-lucide="leaf"></i></div>
+            <h3>ESG CO₂ Emission System</h3>
+            <p>Emission tracking model that converts operational activity into transparent ESG reporting signals.</p>
+            <div class="tag-row"><span>CO₂</span><span>EV Impact</span><span>Reports</span></div>
+            <footer>Python • SQL • ESG Models</footer>
+          </article>
+          <article class="project-card" data-aos="fade-up" data-aos-delay="140">
+            <div class="project-topline"><span>Audit AI</span><i data-lucide="shield-check"></i></div>
+            <h3>Audit Intelligence Tool</h3>
+            <p>Anomaly detection and exception workflow for payroll, vendor, process, and compliance audits.</p>
+            <div class="tag-row"><span>Leakage</span><span>Variance</span><span>Risk</span></div>
+            <footer>Python • Excel • AI Agents</footer>
+          </article>
+          <article class="project-card" data-aos="fade-up">
+            <div class="project-topline"><span>RouteOS</span><i data-lucide="map"></i></div>
+            <h3>EV Route Optimization Tool</h3>
+            <p>Route intelligence layer for range, charging windows, delivery density, and operational constraints.</p>
+            <div class="tag-row"><span>Range</span><span>Charge</span><span>ETA</span></div>
+            <footer>Python • Maps APIs • Optimization</footer>
+          </article>
+          <article class="project-card featured-project" data-aos="fade-up" data-aos-delay="70">
+            <div class="project-topline"><span>ReportFlow</span><i data-lucide="workflow"></i></div>
+            <h3>AI Reporting Automation System</h3>
+            <p>Automated reporting workflow that turns raw operational data into structured review packs and alerts.</p>
+            <div class="tag-row"><span>48h → 3h</span><span>AI Summary</span><span>n8n</span></div>
+            <footer>n8n • AI Agents • JavaScript • APIs</footer>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section-shell">
+        <div class="section-heading" data-aos="fade-up">
+          <span>Skills Matrix</span>
+          <h2>Practical stack for analytics-heavy operations.</h2>
+        </div>
+        <div class="skills-grid mt-12">
+          <article class="skill-card" data-aos="zoom-in"><i data-lucide="code-2"></i><span>Python</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="40"><i data-lucide="database"></i><span>SQL</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="80"><i data-lucide="bot"></i><span>AI Agents</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="120"><i data-lucide="network"></i><span>n8n</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="160"><i data-lucide="layout-dashboard"></i><span>Dashboarding</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="200"><i data-lucide="activity"></i><span>KPI Monitoring</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="240"><i data-lucide="workflow"></i><span>Workflow Automation</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="280"><i data-lucide="truck"></i><span>Fleet Analytics</span></article>
+          <article class="skill-card" data-aos="zoom-in" data-aos-delay="320"><i data-lucide="leaf"></i><span>ESG Reporting</span></article>
+        </div>
+      </section>
+
+      <section id="contact" class="section-shell pb-32">
+        <div class="contact-card" data-aos="zoom-in">
+          <div>
+            <span class="contact-kicker">Command Link</span>
+            <h2>Let’s build the next operating layer.</h2>
+            <p>
+              Available for AI automation, fleet analytics, ESG reporting, audit intelligence, and operational dashboard projects.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a href="https://www.linkedin.com/in/anubhav-giri-pop787" target="_blank" rel="noreferrer">
+              <i data-lucide="linkedin"></i>
+              LinkedIn
+            </a>
+            <a href="mailto:anubhavgiri787@gmail.com">
+              <i data-lucide="mail"></i>
+              Email
+            </a>
+            <a href="Anubhav_Resume.pdf" download>
+              <i data-lucide="download"></i>
+              Resume
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="chatbot" aria-live="polite">
+      <button class="chat-launcher" id="chatLauncher" aria-label="Open Ask Anubhav AI">
+        <i data-lucide="sparkles"></i>
+        <span>Ask Anubhav AI</span>
+      </button>
+      <section class="chat-window" id="chatWindow" aria-label="Ask Anubhav AI chat">
+        <header>
+          <div>
+            <strong>Ask Anubhav AI</strong>
+            <span>Operations intelligence assistant</span>
+          </div>
+          <button id="chatMinimize" aria-label="Minimize chat">
+            <i data-lucide="minus"></i>
+          </button>
+        </header>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            Hey, I’m Ask Anubhav AI. Ask me about my work, projects, weirdly specific ops dashboards, AI automation, or why manual reporting deserves a tiny funeral.
+          </div>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <input id="chatInput" type="text" placeholder="Ask about operations, projects, or skills..." autocomplete="off" />
+          <button type="submit" aria-label="Send message"><i data-lucide="send-horizontal"></i></button>
+        </form>
+      </section>
+    </aside>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
