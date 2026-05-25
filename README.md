@@ -52,12 +52,37 @@ npm start
 
 Free model availability can change, so update `AI_MODEL` if your provider changes the free model slug.
 
+## Deploy With Live Chatbot On Vercel
+
+GitHub Pages can host the static website, but it cannot run `server.js` or the Gemini API proxy. For the live chatbot, deploy this repo on Vercel.
+
+1. Go to:
+
+```text
+https://vercel.com/new
+```
+
+2. Import this GitHub repo.
+
+3. Add Environment Variables:
+
+```text
+GEMINI_API_KEY=your_gemini_api_key_here
+AI_MODEL=gemini-2.5-flash
+```
+
+4. Deploy.
+
+The frontend calls `/api/chat`, and Vercel runs `api/chat.js` as a secure serverless function. The Gemini key stays server-side.
+
 ## Files
 
 - `index.html` - portfolio markup and chatbot shell
 - `styles.css` - cinematic dark UI, glassmorphism, responsive styling
 - `script.js` - animations, counters, particles, chatbot client logic
 - `server.js` - static file server and secure AI proxy
+- `api/chat.js` - Vercel serverless Gemini chatbot endpoint
+- `vercel.json` - Vercel deployment config
 - `knowledge/anubhav-profile.md` - editable chatbot knowledge base
 - `.env.example` - provider configuration examples
 
