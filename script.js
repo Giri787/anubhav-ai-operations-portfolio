@@ -14,7 +14,7 @@ const portfolioKnowledge = {
   audit:
     "Audit intelligence work includes payroll leakage detection, variance analysis, anomaly spotting, and exception workflows. One highlighted result is ₹2M+ payroll leakage identified.",
   default:
-    "I can help with Anubhav’s experience, projects, skills, operations intelligence, AI automation, ESG systems, fleet analytics, and audit intelligence.",
+    "I work across operations, analytics, AI automation, dashboards, and systems that make messy business workflows easier to run.",
 };
 
 const typingPhrases = [
@@ -236,6 +236,27 @@ function initCounters() {
 
 function resolveAnswer(input) {
   const query = input.toLowerCase();
+
+  if (query.includes("why should we hire") || query.includes("why hire") || query.includes("why should we choose")) {
+    if (query.includes("ecommerce") || query.includes("marketing") || query.includes("brand")) {
+      return "For an e-commerce brand, I’d be valuable because I don’t look at marketing in isolation. I think in terms of operations, funnels, reporting, automation, customer behavior, and decision systems. If your team has data spread across tools, repetitive reporting, messy execution, or campaigns that look busy but don’t translate into clear insights, I’m the kind of person who builds the structure behind the growth so the team can move faster with less chaos.";
+    }
+
+    return "You should hire Anubhav because he doesn’t just analyze problems, he builds systems that reduce them permanently. He connects operations, automation, analytics, and product thinking so teams get better visibility, faster execution, and less manual chaos. He’s especially strong in fast-moving environments where people are tired of broken processes pretending to be strategy.";
+  }
+
+  if (query.includes("tell me about yourself")) {
+    return "I sit between operations, product, automation, and business strategy. I like fixing messy systems, automating repetitive work, and turning chaos into processes that actually scale. Most of my work happens where someone says, 'this is too manual,' and I end up building a smarter system for it.";
+  }
+
+  if (query.includes("roast")) {
+    return "Anubhav will spend 6 hours automating a task that takes 11 minutes because 'long-term scalability matters.' He has 47 business ideas, 19 dashboards, 8 Notion systems, and one sleep schedule held together by caffeine and optimism.";
+  }
+
+  if (query.includes("marketing") || query.includes("ecommerce") || query.includes("brand")) {
+    return "He’s not a traditional brand marketer, but he is very useful for e-commerce teams that need cleaner reporting, better operational visibility, smarter automation, and less spreadsheet theatre. He’s the person you bring in when growth starts getting messy behind the scenes and someone needs to connect execution with systems.";
+  }
+
   const rules = [
     ["experience", ["experience", "work", "career", "bluwheelz", "bluewheelz", "stadt", "moyyn", "aigenedge", "palm"]],
     ["projects", ["project", "built", "showcase", "tool", "dashboard", "system"]],
@@ -249,6 +270,27 @@ function resolveAnswer(input) {
 
   const match = rules.find(([, keywords]) => keywords.some((keyword) => query.includes(keyword)));
   return portfolioKnowledge[match?.[0] || "default"];
+}
+
+function humanizeAIError(errorMessage) {
+  const message = String(errorMessage || "").toLowerCase();
+
+  if (
+    message.includes("high demand") ||
+    message.includes("overloaded") ||
+    message.includes("overload") ||
+    message.includes("temporarily unavailable") ||
+    message.includes("resource has been exhausted") ||
+    message.includes("quota")
+  ) {
+    return "The live AI is having one of its dramatic cloud moments right now, so I’m answering from the local knowledge layer instead.";
+  }
+
+  if (message.includes("not configured")) {
+    return "The live AI connection is not configured correctly yet, so I’m falling back to the local knowledge layer.";
+  }
+
+  return "The live AI response glitched, so I’m answering from the local knowledge layer for now.";
 }
 
 function appendMessage(container, text, type) {
@@ -342,7 +384,7 @@ function initChatbot() {
       appendMessage(messages, answer, "bot");
       chatHistory.push({ role: "assistant", content: answer });
     } catch (error) {
-      const fallback = `${resolveAnswer(value)}\n\nLive AI note: ${error.message}`;
+      const fallback = `${resolveAnswer(value)}\n\n${humanizeAIError(error.message)}`;
       typing.remove();
       appendMessage(messages, fallback, "bot");
       chatHistory.push({ role: "assistant", content: fallback });

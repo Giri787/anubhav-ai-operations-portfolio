@@ -148,10 +148,16 @@ async function callGemini(messages) {
   const data = await upstream.json().catch(() => ({}));
 
   if (!upstream.ok) {
+    const providerError = data?.error?.message || "Gemini request failed.";
+    const normalizedError =
+      upstream.status === 429 || upstream.status >= 500
+        ? "Gemini is temporarily under heavy load. Please try again in a moment."
+        : providerError;
+
     return {
       ok: false,
       status: upstream.status,
-      error: data?.error?.message || "Gemini request failed.",
+      error: normalizedError,
     };
   }
 
