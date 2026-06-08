@@ -4,4 +4,3 @@ node_modules
 *.log
 server.err.log
 server.out.log
-server.js

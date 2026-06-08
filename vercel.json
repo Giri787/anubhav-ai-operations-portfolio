@@ -1,8 +1,15 @@
 {
   "version": 2,
   "functions": {
-    "api/chat.js": {
+    "server.js": {
+      "includeFiles": "**/*",
       "maxDuration": 10
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
+  ]
 }
