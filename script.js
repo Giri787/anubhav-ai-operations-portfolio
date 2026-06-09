@@ -24,6 +24,17 @@ const typingPhrases = [
   "Mapping EV fleet signals into measurable performance.",
 ];
 
+const CHAT_RETRYABLE_ERRORS = [
+  "high demand",
+  "overloaded",
+  "overload",
+  "temporarily unavailable",
+  "resource has been exhausted",
+  "quota",
+  "unable to reach gemini",
+  "live ai response glitched",
+];
+
 function initLibraries() {
   if (window.lucide) {
     lucide.createIcons();
@@ -253,6 +264,10 @@ function resolveAnswer(input) {
     return "Anubhav will spend 6 hours automating a task that takes 11 minutes because 'long-term scalability matters.' He has 47 business ideas, 19 dashboards, 8 Notion systems, and one sleep schedule held together by caffeine and optimism.";
   }
 
+  if (query.includes("gemini") || query.includes("why is ai not working") || query.includes("why ai is not working")) {
+    return "Usually it means the live model had a temporary overload, quota hiccup, or one of those classic cloud drama moments. The site falls back to the local knowledge layer so the chat does not die completely, but yes, ideally the live response should come through on the first try.";
+  }
+
   if (query.includes("marketing") || query.includes("ecommerce") || query.includes("brand")) {
     return "He’s not a traditional brand marketer, but he is very useful for e-commerce teams that need cleaner reporting, better operational visibility, smarter automation, and less spreadsheet theatre. He’s the person you bring in when growth starts getting messy behind the scenes and someone needs to connect execution with systems.";
   }
@@ -316,21 +331,39 @@ async function requestAIResponse(message, history) {
     throw new Error("Run the local server to enable live AI replies.");
   }
 
-  const response = await fetch("/api/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message, history }),
-  });
+  let lastError = new Error("The AI assistant is unavailable.");
 
-  const data = await response.json().catch(() => ({}));
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message, history }),
+      });
 
-  if (!response.ok) {
-    throw new Error(data.setup || data.error || "The AI assistant is unavailable.");
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.setup || data.error || "The AI assistant is unavailable.");
+      }
+
+      return data.answer;
+    } catch (error) {
+      lastError = error;
+      const normalized = String(error.message || "").toLowerCase();
+      const shouldRetry = CHAT_RETRYABLE_ERRORS.some((item) => normalized.includes(item));
+
+      if (!shouldRetry || attempt === 1) {
+        break;
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 900));
+    }
   }
 
-  return data.answer;
+  throw lastError;
 }
 
 function initChatbot() {
